@@ -1,4 +1,4 @@
-import heroImg from "@/assets/alejandro-hero.jpeg";
+import heroImg from "../../../assets/alejandro-hero.jpeg";
 import { WhatsAppIcon, PlayIcon } from "@/shared/ui";
 import { WHATSAPP_URL } from "@/shared/constants";
 
