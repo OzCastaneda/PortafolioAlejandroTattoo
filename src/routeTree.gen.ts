@@ -9,8 +9,37 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+<<<<<<< HEAD
 import { Route as IndexRouteImport } from './routes/index'
 
+=======
+import { Route as WorksRouteImport } from './routes/works'
+import { Route as StylesRouteImport } from './routes/styles'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as IndexRouteImport } from './routes/index'
+
+const WorksRoute = WorksRouteImport.update({
+  id: '/works',
+  path: '/works',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StylesRoute = StylesRouteImport.update({
+  id: '/styles',
+  path: '/styles',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+>>>>>>> 4fc1b16 (feat: refactor architecture, add discount wheel, improve responsive layout and update documentation)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,13 +48,28 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+<<<<<<< HEAD
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+=======
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/styles': typeof StylesRoute
+  '/works': typeof WorksRoute
+}
+export interface FileRoutesByTo {
+  '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/styles': typeof StylesRoute
+  '/works': typeof WorksRoute
+>>>>>>> 4fc1b16 (feat: refactor architecture, add discount wheel, improve responsive layout and update documentation)
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+<<<<<<< HEAD
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -33,14 +77,65 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to: '/'
   id: '__root__' | '/'
+=======
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/styles': typeof StylesRoute
+  '/works': typeof WorksRoute
+}
+export interface FileRouteTypes {
+  fileRoutesByFullPath: FileRoutesByFullPath
+  fullPaths: '/' | '/about' | '/contact' | '/styles' | '/works'
+  fileRoutesByTo: FileRoutesByTo
+  to: '/' | '/about' | '/contact' | '/styles' | '/works'
+  id: '__root__' | '/' | '/about' | '/contact' | '/styles' | '/works'
+>>>>>>> 4fc1b16 (feat: refactor architecture, add discount wheel, improve responsive layout and update documentation)
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+<<<<<<< HEAD
+=======
+  AboutRoute: typeof AboutRoute
+  ContactRoute: typeof ContactRoute
+  StylesRoute: typeof StylesRoute
+  WorksRoute: typeof WorksRoute
+>>>>>>> 4fc1b16 (feat: refactor architecture, add discount wheel, improve responsive layout and update documentation)
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+<<<<<<< HEAD
+=======
+    '/works': {
+      id: '/works'
+      path: '/works'
+      fullPath: '/works'
+      preLoaderRoute: typeof WorksRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/styles': {
+      id: '/styles'
+      path: '/styles'
+      fullPath: '/styles'
+      preLoaderRoute: typeof StylesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+>>>>>>> 4fc1b16 (feat: refactor architecture, add discount wheel, improve responsive layout and update documentation)
     '/': {
       id: '/'
       path: '/'
@@ -53,6 +148,13 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+<<<<<<< HEAD
+=======
+  AboutRoute: AboutRoute,
+  ContactRoute: ContactRoute,
+  StylesRoute: StylesRoute,
+  WorksRoute: WorksRoute,
+>>>>>>> 4fc1b16 (feat: refactor architecture, add discount wheel, improve responsive layout and update documentation)
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

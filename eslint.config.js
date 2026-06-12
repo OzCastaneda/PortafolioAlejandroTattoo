@@ -34,6 +34,10 @@ export default tseslint.config(
       ],
       "react-refresh/only-export-components": ["warn", { allowConstantExport: true }],
       "@typescript-eslint/no-unused-vars": "off",
+<<<<<<< HEAD
+=======
+      "no-empty": ["error", { allowEmptyCatch: true }],
+>>>>>>> 4fc1b16 (feat: refactor architecture, add discount wheel, improve responsive layout and update documentation)
     },
   },
   eslintPluginPrettier,
