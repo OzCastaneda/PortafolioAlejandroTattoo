@@ -59,12 +59,6 @@
   --ink: oklch(0.09 0.005 20);
 }
 
-<<<<<<< HEAD
-.dark { color-scheme: dark; }
-
-@layer base {
-  * { border-color: var(--color-border); }
-=======
 .dark {
   color-scheme: dark;
 }
@@ -78,15 +72,10 @@
     scroll-behavior: smooth;
   }
 
->>>>>>> 4fc1b16 (feat: refactor architecture, add discount wheel, improve responsive layout and update documentation)
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-body);
-<<<<<<< HEAD
-  }
-  h1, h2, h3, h4 {
-=======
     overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
   }
@@ -95,20 +84,11 @@
   h2,
   h3,
   h4 {
->>>>>>> 4fc1b16 (feat: refactor architecture, add discount wheel, improve responsive layout and update documentation)
     font-family: var(--font-display);
     letter-spacing: 0.02em;
   }
 }
 
-<<<<<<< HEAD
-@keyframes bounce-slow {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-=======
 @layer utilities {
   .section-anchor {
     scroll-margin-top: 5rem;
@@ -140,15 +120,12 @@
   }
   50% {
     transform: translateY(-6px);
->>>>>>> 4fc1b16 (feat: refactor architecture, add discount wheel, improve responsive layout and update documentation)
   }
 }
 
 .animate-bounce-slow {
   animation: bounce-slow 2s ease-in-out infinite;
 }
-<<<<<<< HEAD
-=======
 
 @media (max-width: 640px) {
   .animate-bounce-slow {
@@ -177,4 +154,3 @@
     opacity: 1;
   }
 }
->>>>>>> 4fc1b16 (feat: refactor architecture, add discount wheel, improve responsive layout and update documentation)

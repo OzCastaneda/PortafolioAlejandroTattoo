@@ -9,10 +9,6 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-<<<<<<< HEAD
-import { Route as IndexRouteImport } from './routes/index'
-
-=======
 import { Route as WorksRouteImport } from './routes/works'
 import { Route as StylesRouteImport } from './routes/styles'
 import { Route as ContactRouteImport } from './routes/contact'
@@ -39,7 +35,6 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
->>>>>>> 4fc1b16 (feat: refactor architecture, add discount wheel, improve responsive layout and update documentation)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -48,11 +43,6 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-<<<<<<< HEAD
-}
-export interface FileRoutesByTo {
-  '/': typeof IndexRoute
-=======
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/styles': typeof StylesRoute
@@ -64,20 +54,10 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/styles': typeof StylesRoute
   '/works': typeof WorksRoute
->>>>>>> 4fc1b16 (feat: refactor architecture, add discount wheel, improve responsive layout and update documentation)
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-<<<<<<< HEAD
-}
-export interface FileRouteTypes {
-  fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
-  fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
-=======
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/styles': typeof StylesRoute
@@ -89,24 +69,18 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to: '/' | '/about' | '/contact' | '/styles' | '/works'
   id: '__root__' | '/' | '/about' | '/contact' | '/styles' | '/works'
->>>>>>> 4fc1b16 (feat: refactor architecture, add discount wheel, improve responsive layout and update documentation)
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-<<<<<<< HEAD
-=======
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
   StylesRoute: typeof StylesRoute
   WorksRoute: typeof WorksRoute
->>>>>>> 4fc1b16 (feat: refactor architecture, add discount wheel, improve responsive layout and update documentation)
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-<<<<<<< HEAD
-=======
     '/works': {
       id: '/works'
       path: '/works'
@@ -135,7 +109,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
->>>>>>> 4fc1b16 (feat: refactor architecture, add discount wheel, improve responsive layout and update documentation)
     '/': {
       id: '/'
       path: '/'
@@ -148,13 +121,10 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-<<<<<<< HEAD
-=======
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
   StylesRoute: StylesRoute,
   WorksRoute: WorksRoute,
->>>>>>> 4fc1b16 (feat: refactor architecture, add discount wheel, improve responsive layout and update documentation)
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

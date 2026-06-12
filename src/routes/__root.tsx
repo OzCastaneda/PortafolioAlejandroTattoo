@@ -1,8 +1,4 @@
 import {
-<<<<<<< HEAD
-  Outlet,
-=======
->>>>>>> 4fc1b16 (feat: refactor architecture, add discount wheel, improve responsive layout and update documentation)
   Link,
   createRootRouteWithContext,
   useRouter,
@@ -11,10 +7,7 @@ import {
 } from "@tanstack/react-router";
 import type { QueryClient } from "@tanstack/react-query";
 import { SITE } from "@/shared/constants";
-<<<<<<< HEAD
-=======
 import { RootLayout } from "@/app/layouts";
->>>>>>> 4fc1b16 (feat: refactor architecture, add discount wheel, improve responsive layout and update documentation)
 
 import appCss from "../styles/globals.css?url";
 
@@ -121,9 +114,5 @@ function RootShell({ children }: { children: React.ReactNode }) {
 }
 
 function RootComponent() {
-<<<<<<< HEAD
-  return <Outlet />;
-=======
   return <RootLayout />;
->>>>>>> 4fc1b16 (feat: refactor architecture, add discount wheel, improve responsive layout and update documentation)
 }

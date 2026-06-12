@@ -1,21 +1,3 @@
-<<<<<<< HEAD
-import work1 from "../../../assets/work-1.jpeg";
-import work2 from "../../../assets/work-2.jpeg";
-import work3 from "../../../assets/work-3.jpeg";
-import work4 from "../../../assets/work-4.jpeg";
-import work5 from "../../../assets/work-5.jpeg";
-import work6 from "../../../assets/work-6.jpeg";
-import work7 from "../../../assets/work-7.jpeg";
-import work8 from "../../../assets/work-8.jpeg";
-import work9 from "../../../assets/work-9-gara.jpeg.jpeg";
-import work10 from "../../../assets/work-10-ragnarok.jpeg";
-import work11 from "../../../assets/work-11-naruto.jpeg";
-import work12 from "../../../assets/work-12-onepiece.jpeg";
-import work13 from "../../../assets/work-13-pikachu.jpeg";
-import work14 from "../../../assets/work-14-lettering.jpeg";
-import work15 from "../../../assets/work-15-frezer.jpeg";
-import work16 from "../../../assets/work-16-colibri.jpeg";
-=======
 import work1 from "@/assets/work-1-mascaraoni.jpeg";
 import work2 from "@/assets/work-2-angels.jpeg";
 import work3 from "@/assets/work-3-newschool-tiger.jpeg";
@@ -33,7 +15,6 @@ import work15 from "@/assets/work-15-frezer.jpeg";
 import work16 from "@/assets/work-16-colibri.jpeg";
 import work17 from "@/assets/work-17-blackandgrey-faces.jpeg";
 import work18 from "@/assets/work-18-perrofu.jpeg";
->>>>>>> 4fc1b16 (feat: refactor architecture, add discount wheel, improve responsive layout and update documentation)
 
 export interface TattooWork {
   image: string;
@@ -54,16 +35,9 @@ export const TATTOO_WORKS: TattooWork[] = [
   { image: work10, title: "Göll Ragnarok", tag: "Anime" },
   { image: work11, title: "Team 7 Naruto", tag: "Anime" },
   { image: work12, title: "Trafalgar Law", tag: "Anime" },
-<<<<<<< HEAD
-  { image: work13, title: "Pikachu", tag: "Anime" },
-  { image: work14, title: "Lettering creativa", tag: "Lettering" },
-  { image: work15, title: "Frieza completo", tag: "Anime" },
-  { image: work16, title: "Colibrí color", tag: "Color" },
-=======
   { image: work14, title: "Lettering creativa", tag: "Lettering" },
   { image: work15, title: "Frieza completo", tag: "Anime" },
   { image: work16, title: "Colibrí color", tag: "Color" },
   { image: work17, title: "Black & Grey Faces", tag: "Black & Grey" },
   { image: work18, title: "Perro fiel", tag: "Realismo" },
->>>>>>> 4fc1b16 (feat: refactor architecture, add discount wheel, improve responsive layout and update documentation)
 ];

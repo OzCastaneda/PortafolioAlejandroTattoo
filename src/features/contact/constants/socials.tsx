@@ -12,13 +12,8 @@ export const SOCIAL_LINKS: SocialLink[] = [
   },
   {
     name: "Instagram",
-<<<<<<< HEAD
-    handle: "@alejotatuaje",
-    href: "https://www.instagram.com/alejotatuaje?utm_source=qr&igsh=MW0yZHdyOTlybmpvdw==",
-=======
     handle: "@alejotatt00",
     href: "https://www.instagram.com/alejotatt00/",
->>>>>>> 4fc1b16 (feat: refactor architecture, add discount wheel, improve responsive layout and update documentation)
     icon: <InstagramIcon />,
   },
   {
