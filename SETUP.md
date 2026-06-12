@@ -5,9 +5,9 @@ Guía paso a paso para levantar el proyecto en local y desplegarlo.
 ## 1. Requisitos
 
 | Herramienta | Versión mínima |
-|---|---|
-| Node.js | 20.x |
-| npm | 10.x |
+| ----------- | -------------- |
+| Node.js     | 20.x           |
+| npm         | 10.x           |
 
 Verifica tu versión:
 
@@ -57,16 +57,19 @@ Sirve el build de producción localmente para verificar antes de desplegar.
 ### Opción A: Cloudflare Workers
 
 1. Instala Wrangler CLI:
+
    ```bash
    npm install -g wrangler
    ```
 
 2. Autentica con Cloudflare:
+
    ```bash
    wrangler login
    ```
 
 3. Edita el nombre del proyecto en `wrangler.jsonc`:
+
    ```json
    {
      "name": "tu-proyecto-aqui"
@@ -84,6 +87,7 @@ Sirve el build de producción localmente para verificar antes de desplegar.
 1. Conecta tu repositorio GitHub a [Netlify](https://app.netlify.com/).
 
 2. La configuración ya está en `netlify.toml`:
+
    ```toml
    [build]
      command = "npm run build"
@@ -125,9 +129,9 @@ Edita `src/styles/globals.css` → bloque `:root`:
 
 ```css
 :root {
-  --background: oklch(0.13 0.01 20);   /* Fondo principal */
-  --primary: oklch(0.55 0.22 25);      /* Color de acento */
-  --foreground: oklch(0.98 0.005 60);  /* Texto principal */
+  --background: oklch(0.13 0.01 20); /* Fondo principal */
+  --primary: oklch(0.55 0.22 25); /* Color de acento */
+  --foreground: oklch(0.98 0.005 60); /* Texto principal */
 }
 ```
 

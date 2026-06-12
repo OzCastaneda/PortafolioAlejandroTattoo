@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+
 # Alejandro Tatoo — Portafolio
 
 Sitio web profesional para Alejandro Tatoo, artista tatuador con más de 9 años de experiencia en Bogotá, Colombia.
@@ -104,42 +105,45 @@ Construido con **React 19**, **TanStack Start** y una arquitectura **Feature-Bas
 El proyecto combina **Feature-Based Architecture** + **Layered Architecture** + **Separation of Concerns**.
 
 ```
+
 src/
 │
-├── app/                    # Capa de aplicación
-│   ├── layouts/            # Layouts globales (RootLayout)
-│   ├── providers/          # Providers (QueryClient, Router)
-│   └── router/             # Configuración del router
+├── app/ # Capa de aplicación
+│ ├── layouts/ # Layouts globales (RootLayout)
+│ ├── providers/ # Providers (QueryClient, Router)
+│ └── router/ # Configuración del router
 │
-├── features/               # Módulos funcionales autónomos
-│   ├── bonus-wheel/        # Ruleta de descuentos
-│   ├── contact/            # Página de contacto
-│   ├── home/               # Página de inicio / Hero
-│   └── portfolio/          # Portafolio y galería
+├── features/ # Módulos funcionales autónomos
+│ ├── bonus-wheel/ # Ruleta de descuentos
+│ ├── contact/ # Página de contacto
+│ ├── home/ # Página de inicio / Hero
+│ └── portfolio/ # Portafolio y galería
 │
-├── shared/                 # Capa compartida
-│   ├── components/         # Componentes reutilizables
-│   ├── constants/          # Constantes (SITE, WHATSAPP, NAV)
-│   ├── hooks/              # Hooks personalizados
-│   ├── layouts/            # Header, Footer
-│   ├── types/              # Tipos globales
-│   ├── ui/                 # Iconos SVG
-│   └── utils/              # Utilidades generales
+├── shared/ # Capa compartida
+│ ├── components/ # Componentes reutilizables
+│ ├── constants/ # Constantes (SITE, WHATSAPP, NAV)
+│ ├── hooks/ # Hooks personalizados
+│ ├── layouts/ # Header, Footer
+│ ├── types/ # Tipos globales
+│ ├── ui/ # Iconos SVG
+│ └── utils/ # Utilidades generales
 │
-├── routes/                 # TanStack Router file-based
-│   ├── __root.tsx          # Root layout + SEO
-│   ├── index.tsx           # Ruta principal (/)
-│   ├── about.tsx           # Sobre mí
-│   ├── styles.tsx          # Estilos
-│   ├── works.tsx           # Trabajos
-│   └── contact.tsx         # Contacto
+├── routes/ # TanStack Router file-based
+│ ├── \_\_root.tsx # Root layout + SEO
+│ ├── index.tsx # Ruta principal (/)
+│ ├── about.tsx # Sobre mí
+│ ├── styles.tsx # Estilos
+│ ├── works.tsx # Trabajos
+│ └── contact.tsx # Contacto
 │
-├── assets/                 # Imágenes estáticas
-│   └── ...
+├── assets/ # Imágenes estáticas
+│ └── ...
 │
-└── styles/                 # Estilos globales
-    └── globals.css         # Design Tokens, animaciones
->>>>>>> 4fc1b16 (feat: refactor architecture, add discount wheel, improve responsive layout and update documentation)
+└── styles/ # Estilos globales
+└── globals.css # Design Tokens, animaciones
+
+> > > > > > > 4fc1b16 (feat: refactor architecture, add discount wheel, improve responsive layout and update documentation)
+
 ```
 
 ### Principios aplicados
@@ -165,31 +169,33 @@ src/
 Cada feature contiene todo lo que necesita para funcionar:
 
 ```
+
 features/bonus-wheel/
 ├── components/
-│   ├── BonusWheel.tsx         # Orquestador del flujo
-│   ├── BonusResult.tsx        # Resultado final + comparación
-│   ├── LeadForm.tsx           # Captura de leads
-│   ├── PrizeCard.tsx          # Card con confeti + premio
-│   ├── ProgressIndicator.tsx  # Indicador de progreso (4 pasos)
-│   ├── SecondChanceCard.tsx   # Oferta de segunda oportunidad
-│   ├── SpinButton.tsx         # Botón de giro animado
-│   └── Wheel.tsx              # SVG de la ruleta
+│ ├── BonusWheel.tsx # Orquestador del flujo
+│ ├── BonusResult.tsx # Resultado final + comparación
+│ ├── LeadForm.tsx # Captura de leads
+│ ├── PrizeCard.tsx # Card con confeti + premio
+│ ├── ProgressIndicator.tsx # Indicador de progreso (4 pasos)
+│ ├── SecondChanceCard.tsx # Oferta de segunda oportunidad
+│ ├── SpinButton.tsx # Botón de giro animado
+│ └── Wheel.tsx # SVG de la ruleta
 ├── constants/
-│   ├── index.ts               # Barrel export
-│   └── prizes.ts              # Premios, colores, storage keys
+│ ├── index.ts # Barrel export
+│ └── prizes.ts # Premios, colores, storage keys
 ├── hooks/
-│   ├── index.ts
-│   └── useBonusWheel.ts       # State machine (6 estados)
+│ ├── index.ts
+│ └── useBonusWheel.ts # State machine (6 estados)
 ├── types/
-│   ├── bonus.types.ts         # Interfaces del dominio
-│   └── index.ts
+│ ├── bonus.types.ts # Interfaces del dominio
+│ └── index.ts
 ├── utils/
-│   ├── generateCoupon.ts      # Código TATTOO-XXXXXX
-│   ├── prizeEvaluator.ts      # Comparación de premios
-│   ├── storage.ts             # localStorage tipado
-│   └── wheelLogic.ts          # Lógica de giro ponderado
-└── index.ts                   # Barrel público
+│ ├── generateCoupon.ts # Código TATTOO-XXXXXX
+│ ├── prizeEvaluator.ts # Comparación de premios
+│ ├── storage.ts # localStorage tipado
+│ └── wheelLogic.ts # Lógica de giro ponderado
+└── index.ts # Barrel público
+
 ```
 
 ---
@@ -201,7 +207,9 @@ Sistema interactivo de captura de leads mediante una ruleta de descuentos con do
 ### Flujo completo
 
 ```
+
 [Paso 1] Primer giro ──> [Paso 2] Formulario ──> [Paso 3] Segundo giro ──> [Paso 4] Resultado final
+
 ```
 
 ### Premios disponibles
@@ -231,6 +239,7 @@ Sistema interactivo de captura de leads mediante una ruleta de descuentos con do
 ### Mensaje de WhatsApp generado
 
 ```
+
 Hola.
 Participé en la ruleta de descuentos.
 
@@ -244,6 +253,7 @@ Descuento final: {final}%
 Código: {código}
 
 Quiero reclamar mi bono para mi próximo tatuaje.
+
 ```
 
 ### Persistencia
@@ -258,8 +268,10 @@ Quiero reclamar mi bono para mi próximo tatuaje.
 ### State machine
 
 ```
+
 idle → first_result → second_ready → second_result → final
-```
+
+````
 
 Cada transición persiste en localStorage y es recuperable al recargar la página.
 
@@ -312,18 +324,18 @@ Configuración global en `src/routes/__root.tsx`:
 
 ```bash
 npm install
-```
+````
 
 ### Comandos
 
-| Comando | Descripción |
-|---|---|
-| `npm run dev` | Servidor de desarrollo |
-| `npm run build` | Build de producción |
-| `npm run build:dev` | Build modo desarrollo |
-| `npm run preview` | Preview del build |
-| `npm run lint` | ESLint |
-| `npm run format` | Prettier |
+| Comando             | Descripción            |
+| ------------------- | ---------------------- |
+| `npm run dev`       | Servidor de desarrollo |
+| `npm run build`     | Build de producción    |
+| `npm run build:dev` | Build modo desarrollo  |
+| `npm run preview`   | Preview del build      |
+| `npm run lint`      | ESLint                 |
+| `npm run format`    | Prettier               |
 
 ### Estructura de una feature
 
@@ -348,6 +360,7 @@ features/<nombre>/
 ### Agregar constantes globales
 
 Editar `src/shared/constants/site.ts` para:
+
 - Nombre del sitio, descripción, SEO
 - URL y mensaje de WhatsApp
 - Imagen OG para redes sociales
@@ -358,14 +371,14 @@ Editar `src/shared/constants/site.ts` para:
 
 Diseño dark-theme con tokens OKLCH definidos en `src/styles/globals.css`:
 
-| Token | Uso |
-|---|---|
-| `--background` | Fondo principal |
-| `--foreground` | Texto principal |
-| `--primary` | Color de acento (rojo sangre) |
-| `--card` | Fondo de tarjetas |
-| `--muted-foreground` | Texto secundario |
-| `--ink` | Negro profundo (fondos de imagen) |
+| Token                | Uso                               |
+| -------------------- | --------------------------------- |
+| `--background`       | Fondo principal                   |
+| `--foreground`       | Texto principal                   |
+| `--primary`          | Color de acento (rojo sangre)     |
+| `--card`             | Fondo de tarjetas                 |
+| `--muted-foreground` | Texto secundario                  |
+| `--ink`              | Negro profundo (fondos de imagen) |
 
 ### Tipografía
 
@@ -384,7 +397,9 @@ Configurado en `src/routes/__root.tsx` usando `SITE` constants:
 ## Despliegue
 
 ### Cloudflare Workers
+
 =======
+
 - npm / pnpm / bun / yarn
 
 ### Clonar e instalar
@@ -409,21 +424,22 @@ Servidor local: [http://localhost:3000](http://localhost:3000)
 
 ## 📜 Scripts Disponibles
 
-| Script | Descripción |
-|---|---|
-| `npm run dev` | Inicia entorno de desarrollo |
-| `npm run build` | Build de producción (client + SSR) |
-| `npm run build:dev` | Build en modo development |
-| `npm run preview` | Vista previa del build |
-| `npm run lint` | ESLint con flat config |
-| `npm run format` | Prettier — formatea todo el proyecto |
+| Script              | Descripción                          |
+| ------------------- | ------------------------------------ |
+| `npm run dev`       | Inicia entorno de desarrollo         |
+| `npm run build`     | Build de producción (client + SSR)   |
+| `npm run build:dev` | Build en modo development            |
+| `npm run preview`   | Vista previa del build               |
+| `npm run lint`      | ESLint con flat config               |
+| `npm run format`    | Prettier — formatea todo el proyecto |
 
 ---
 
 ## ☁️ Despliegue
 
 ### Cloudflare Workers (producción)
->>>>>>> 4fc1b16 (feat: refactor architecture, add discount wheel, improve responsive layout and update documentation)
+
+> > > > > > > 4fc1b16 (feat: refactor architecture, add discount wheel, improve responsive layout and update documentation)
 
 ```bash
 npm run build
@@ -431,6 +447,7 @@ npx wrangler deploy
 ```
 
 <<<<<<< HEAD
+
 ### Netlify
 
 El proyecto incluye configuración en `netlify.toml`. Conectar el repositorio a Netlify para despliegue automático.
@@ -450,8 +467,8 @@ import { TATTOO_WORKS } from "@/features/portfolio/constants";
 
 - `routeTree.gen.ts` es auto-generado por TanStack Router — no editar manualmente
 - Los iconos SVG están en `shared/ui/icons.tsx` — agregar nuevos ahí
-- Para cambiar el número de WhatsApp, editar `WHATSAPP_PHONE` en `shared/constants/site.ts`
-=======
+- # Para cambiar el número de WhatsApp, editar `WHATSAPP_PHONE` en `shared/constants/site.ts`
+
 ### Netlify (alternativo)
 
 El proyecto incluye `netlify.toml`. Conecta el repositorio desde el panel de Netlify para despliegue automático.
