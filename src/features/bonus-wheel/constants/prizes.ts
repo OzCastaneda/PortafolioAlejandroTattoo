@@ -21,10 +21,7 @@ export const VISUAL_SEGMENTS: VisualSegment[] = [
   { value: 50, color: "#1a1a2e", label: "50%" },
 ];
 
-export const STORAGE_KEY_FIRST_SPIN = "bonus_first_spin";
-export const STORAGE_KEY_SECOND_SPIN = "bonus_second_spin";
-export const STORAGE_KEY_CUSTOMER = "bonus_customer";
-export const STORAGE_KEY_FINAL = "bonus_final_result";
+export const STORAGE_KEY_RESULT = "bonus_result";
 
 export const SPIN_DURATION_MS = 5000;
 export const EXTRA_SPINS = 6;

@@ -1,33 +1,11 @@
 import { useBonusWheel } from "../hooks";
 import { Wheel } from "./Wheel";
 import { PrizeCard } from "./PrizeCard";
-import { BonusResult } from "./BonusResult";
-import { ProgressIndicator } from "./ProgressIndicator";
 import { SpinButton } from "./SpinButton";
-import { SecondChanceCard } from "./SecondChanceCard";
 import { GOLD } from "../constants";
 
-const STEP_PROGRESS: Record<string, number> = {
-  idle: 0,
-  first_result: 1,
-  second_ready: 2,
-  second_result: 3,
-  final: 4,
-};
-
 export function BonusWheel() {
-  const {
-    step,
-    spinning,
-    rotation,
-    firstSpin,
-    secondSpin,
-    finalResult,
-    spin,
-    submitLead,
-    bonusWhatsAppUrl,
-    secondBetter,
-  } = useBonusWheel();
+  const { step, spinning, rotation, spinData, spin, reset, whatsAppUrl } = useBonusWheel();
 
   return (
     <section className="py-16 sm:py-24 lg:py-32 px-4 sm:px-6 border-t border-border overflow-hidden">
@@ -52,29 +30,11 @@ export function BonusWheel() {
           </h2>
         </div>
 
-        <div className="mb-8 sm:mb-10">
-          <ProgressIndicator current={STEP_PROGRESS[step]} />
-        </div>
-
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
           <div className="flex flex-col items-center gap-8">
             <Wheel rotation={rotation} spinning={spinning} />
 
             {step === "idle" && <SpinButton onClick={spin} disabled={spinning} />}
-
-            {step === "second_ready" && (
-              <SpinButton onClick={spin} disabled={spinning} label="Girar nuevamente" />
-            )}
-
-            {(step === "first_result" || step === "second_result") && !spinning && (
-              <p className="text-sm text-muted-foreground">
-                {step === "first_result" ? "Primer giro completado" : "Segundo giro completado"}
-              </p>
-            )}
-
-            {step === "final" && (
-              <p className="text-sm text-muted-foreground">¡Ruleta completada!</p>
-            )}
           </div>
 
           <div className="flex flex-col items-center lg:items-start justify-start min-h-[350px] gap-6">
@@ -98,43 +58,29 @@ export function BonusWheel() {
               </div>
             )}
 
-            {step === "first_result" && !spinning && (
+            {step === "result" && !spinning && (
               <>
                 <PrizeCard
-                  discount={firstSpin.prize}
-                  code={firstSpin.code}
-                  onClaim={() => window.open(bonusWhatsAppUrl(), "_blank")}
-                  spinNumber={1}
+                  discount={spinData.prize}
+                  code={spinData.code}
+                  onClaim={() => window.open(whatsAppUrl, "_blank")}
                 />
-                <SecondChanceCard onSubmit={submitLead} />
+
+                <button
+                  onClick={reset}
+                  className="text-xs uppercase tracking-widest text-muted-foreground hover:text-foreground transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded px-3 py-1.5"
+                >
+                  Reiniciar ruleta
+                </button>
               </>
-            )}
-
-            {step === "second_ready" && !spinning && (
-              <div className="text-center lg:text-left space-y-4 max-w-md animate-[fadeInUp_0.5s_ease-out]">
-                <p className="text-lg" style={{ color: GOLD }}>
-                  Tu segunda oportunidad está lista.
-                </p>
-                <p className="text-sm text-muted-foreground">
-                  Gira nuevamente para intentar obtener un mejor descuento.{" "}
-                  {firstSpin.prize < 50 && "¡Puedes mejorar tu " + firstSpin.prize + "%!"}
-                </p>
-              </div>
-            )}
-
-            {step === "second_result" && !spinning && (
-              <PrizeCard discount={secondSpin.prize} code={secondSpin.code} spinNumber={2} />
-            )}
-
-            {step === "final" && finalResult && (
-              <BonusResult
-                result={finalResult}
-                onClaim={() => window.open(bonusWhatsAppUrl(), "_blank")}
-                isSecondBetter={secondBetter}
-              />
             )}
           </div>
         </div>
+
+        <p className="mt-12 text-center text-[11px] sm:text-xs text-muted-foreground/60 max-w-xl mx-auto leading-relaxed">
+          Aplican condiciones y restricciones: es solo un bono por participante. Si ya redimiste el
+          tuyo permite que otro participe.
+        </p>
       </div>
     </section>
   );

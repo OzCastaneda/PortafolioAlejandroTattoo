@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as WorksRouteImport } from './routes/works'
 import { Route as StylesRouteImport } from './routes/styles'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as BonusRouteImport } from './routes/bonus'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 
@@ -30,6 +31,11 @@ const ContactRoute = ContactRouteImport.update({
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BonusRoute = BonusRouteImport.update({
+  id: '/bonus',
+  path: '/bonus',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
@@ -44,6 +50,7 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/bonus': typeof BonusRoute
   '/contact': typeof ContactRoute
   '/styles': typeof StylesRoute
   '/works': typeof WorksRoute
@@ -51,6 +58,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/bonus': typeof BonusRoute
   '/contact': typeof ContactRoute
   '/styles': typeof StylesRoute
   '/works': typeof WorksRoute
@@ -59,21 +67,23 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/bonus': typeof BonusRoute
   '/contact': typeof ContactRoute
   '/styles': typeof StylesRoute
   '/works': typeof WorksRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/contact' | '/styles' | '/works'
+  fullPaths: '/' | '/about' | '/bonus' | '/contact' | '/styles' | '/works'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/contact' | '/styles' | '/works'
-  id: '__root__' | '/' | '/about' | '/contact' | '/styles' | '/works'
+  to: '/' | '/about' | '/bonus' | '/contact' | '/styles' | '/works'
+  id: '__root__' | '/' | '/about' | '/bonus' | '/contact' | '/styles' | '/works'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  BonusRoute: typeof BonusRoute
   ContactRoute: typeof ContactRoute
   StylesRoute: typeof StylesRoute
   WorksRoute: typeof WorksRoute
@@ -102,6 +112,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/bonus': {
+      id: '/bonus'
+      path: '/bonus'
+      fullPath: '/bonus'
+      preLoaderRoute: typeof BonusRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/about': {
       id: '/about'
       path: '/about'
@@ -122,6 +139,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  BonusRoute: BonusRoute,
   ContactRoute: ContactRoute,
   StylesRoute: StylesRoute,
   WorksRoute: WorksRoute,

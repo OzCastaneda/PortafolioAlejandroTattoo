@@ -35,10 +35,9 @@ interface PrizeCardProps {
   discount: number;
   code: string;
   onClaim?: () => void;
-  spinNumber?: 1 | 2;
 }
 
-export function PrizeCard({ discount, code, onClaim, spinNumber }: PrizeCardProps) {
+export function PrizeCard({ discount, code, onClaim }: PrizeCardProps) {
   return (
     <div className="relative overflow-hidden">
       <Confetti />
@@ -53,7 +52,7 @@ export function PrizeCard({ discount, code, onClaim, spinNumber }: PrizeCardProp
       >
         <div className="space-y-2">
           <p className="text-lg text-[#D4A853] font-semibold tracking-wider animate-[fadeInUp_0.6s_ease-out]">
-            {spinNumber === 2 ? "¡Segundo giro!" : "¡Felicidades!"}
+            ¡Felicidades!
           </p>
           <p
             className="font-display text-5xl sm:text-6xl leading-none animate-[fadeInUp_0.6s_ease-out_0.1s_both]"
@@ -62,9 +61,7 @@ export function PrizeCard({ discount, code, onClaim, spinNumber }: PrizeCardProp
             {discount}%
           </p>
           <p className="text-sm sm:text-base text-muted-foreground animate-[fadeInUp_0.6s_ease-out_0.2s_both]">
-            {spinNumber === 2
-              ? "de descuento en tu segundo giro"
-              : "de descuento en tu próximo tatuaje"}
+            de descuento en tu próximo tatuaje
           </p>
         </div>
 
